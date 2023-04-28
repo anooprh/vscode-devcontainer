@@ -1,0 +1,89 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/ubuntu
+{
+	"name": "Ubuntu",
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+	"build": {
+		"dockerfile": "Dockerfile",
+		// Update 'VARIANT' to pick an Ubuntu version: jammy / ubuntu-22.04, focal / ubuntu-20.04, bionic /ubuntu-18.04
+		// Use ubuntu-22.04 or ubuntu-18.04 on local arm64/Apple Silicon.
+		"args": { "VARIANT": "ubuntu-22.04" }
+	},
+	// Official Features : https://github.com/devcontainers/features/tree/main/src
+	// Contrib Features : https://github.com/devcontainers-contrib/features/tree/main/src
+	"features": {
+		// zsh + oh-my-zsh
+		"ghcr.io/devcontainers/features/common-utils:2": {
+			"installZsh": true,
+			"configureZshAsDefaultShell": true,
+			"installOhMyZsh": true,
+			"upgradePackages": true
+		},
+        "ghcr.io/devcontainers-contrib/features/zsh-plugins:0": {
+            "plugins": "zsh-autosuggestions",
+            "omzPlugins": "https://github.com/zsh-users/zsh-autosuggestions"
+        },
+		// Tmux
+		"ghcr.io/devcontainers-contrib/features/tmux-apt-get:1": {},
+		// Docker in Docker
+		"ghcr.io/devcontainers/features/docker-in-docker:2": {
+			"dockerDashComposeVersion": "v2"
+		},
+		// Kubectl + Helm + Minikube
+		"ghcr.io/devcontainers/features/kubectl-helm-minikube:1": {},
+		// Python
+		"ghcr.io/devcontainers/features/python:1": {
+			"installTools": true,
+			"installJupyterlab": true,
+			"version": "3.11"
+		},
+		// Black Formatter for Python
+		"ghcr.io/devcontainers-contrib/features/black:2": {},
+		// Hatch(python) Build System
+		"ghcr.io/devcontainers-contrib/features/hatch:2": {},
+		// Go
+		"ghcr.io/devcontainers/features/go:1": {},
+		// Java
+		"ghcr.io/devcontainers/features/java:1": {
+			"jdkDistro": "zulu",
+			"installGradle": true,
+			"installMaven": true,
+		},
+		// Node
+		"ghcr.io/devcontainers/features/node:1": {},
+		// Typescript
+		"ghcr.io/devcontainers-contrib/features/typescript:2": {},
+		// AWS CLI
+		"ghcr.io/devcontainers/features/aws-cli:1": {},
+		// Terraform
+		"ghcr.io/devcontainers/features/terraform:1": {
+			"installTerraformDocs": true,
+		},
+		// Nix Package Manager
+		"ghcr.io/devcontainers/features/nix:1": {},
+		// Bin Package Manager
+		"ghcr.io/devcontainers-contrib/features/bin:1": {},
+		// btop Resource Manager
+		"ghcr.io/devcontainers-contrib/features/btop-homebrew:1": {},
+		// Github CLI
+		"ghcr.io/devcontainers-contrib/features/gh-cli:1": {},
+		// Pre Commit
+		"ghcr.io/devcontainers-contrib/features/pre-commit:2": {},
+
+	},
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [],
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	"postCreateCommand": ". ${NVM_DIR}/nvm.sh && nvm install --lts",
+
+	// Configure tool-specific properties.
+	// "customizations": {},
+
+	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+	// "remoteUser": "root"
+	"remoteUser": "vscode",
+	"remoteEnv": {
+		"PATH": "${containerEnv:PATH}:/home/vscode/.local/bin"
+	},
+}
