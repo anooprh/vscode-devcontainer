@@ -50,21 +50,21 @@
 			"installMaven": true,
 		},
 		// Node
-		"ghcr.io/devcontainers/features/node:1": {},
+		// "ghcr.io/devcontainers/features/node:1": {},
 		// Typescript
-		"ghcr.io/devcontainers-contrib/features/typescript:2": {},
+		// "ghcr.io/devcontainers-contrib/features/typescript:2": {},
 		// AWS CLI
 		"ghcr.io/devcontainers/features/aws-cli:1": {},
 		// Terraform
-		"ghcr.io/devcontainers/features/terraform:1": {
-			"installTerraformDocs": true,
-		},
+		// "ghcr.io/devcontainers/features/terraform:1": {
+		// 	"installTerraformDocs": true,
+		// },
 		// Nix Package Manager
 		"ghcr.io/devcontainers/features/nix:1": {},
 		// Bin Package Manager
 		"ghcr.io/devcontainers-contrib/features/bin:1": {},
 		// btop Resource Manager
-		"ghcr.io/devcontainers-contrib/features/btop-homebrew:1": {},
+		// "ghcr.io/devcontainers-contrib/features/btop-homebrew:1": {},
 		// Github CLI
 		"ghcr.io/devcontainers-contrib/features/gh-cli:1": {},
 		// Pre Commit
@@ -75,7 +75,7 @@
 	// "forwardPorts": [],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": ". ${NVM_DIR}/nvm.sh && nvm install --lts",
+	// "postCreateCommand": ". ${NVM_DIR}/nvm.sh && nvm install --lts",
 
 	// Configure tool-specific properties.
 	// "customizations": {},
